@@ -10,8 +10,10 @@ function View() {
 
     useEffect(() => {
         const book = store.getItem(params.bookId);
+        console.log(params);
+        console.log(book);
         setItem(book);
-    }, []);
+    }, [params, store]);
 
     const itemStyles = {
         container: {
@@ -19,7 +21,8 @@ function View() {
             gap: "20px",
             color: "white",
             width: "800px",
-            margin: "0 auto"
+            margin: "0 auto",
+            fontSize: "22px"
         }
     }
 
@@ -31,14 +34,14 @@ function View() {
     return <Layout>
         <div style={itemStyles.container}>
             <div>
-                <div>{item?.cover ? <img src={item.cover} width="400" /> : ''}</div>
+                <div>{item?.cover ? <img src={item.cover} width="400" alt={item.title} /> : ''}</div>
             </div>
             <div>
-                <h2>{item?.title}</h2>
-                <div>{item?.author}</div>
-                <div>{item?.intro}</div>
-                <div>{item?.completed ? 'Leído' : 'Por terminar'}</div>
-                <div>{item?.review}</div>
+                <h2>Title: {item?.title}</h2>
+                <div>Author: {item?.author}</div>
+                <div>Introduction: {item?.intro}</div>
+                <div>Status: {item?.completed ? 'Readed' : 'Not finished'}</div>
+                <div>Review: {item?.review}</div>
             </div>
         </div>
     </Layout>
