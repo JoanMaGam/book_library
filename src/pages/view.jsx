@@ -10,8 +10,6 @@ function View() {
 
     useEffect(() => {
         const book = store.getItem(params.bookId);
-        console.log(params);
-        console.log(book);
         setItem(book);
     }, [params, store]);
 

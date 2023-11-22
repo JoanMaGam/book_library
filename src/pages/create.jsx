@@ -70,7 +70,7 @@ function Create() {
             review
         };
 
-        //TODO mandar a registrar el libro
+        //TODO register book
         store.createItem(newBook);
         navigate('/');
     }
